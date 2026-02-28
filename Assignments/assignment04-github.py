@@ -1,28 +1,25 @@
+# assignment04-github.py
+# Script: replaces "Andrew" with your name in a file in a repository and pushes the changes
 
-import git 
+import git
+from config import config as cfg  # zawiera githubkey
 
 # CONFIGURATION
-REPO_URL = "https://JoannaMnich:YOUR_TOKEN@github.com/JoannaMnich/aprivateone.git"
-LOCAL_PATH = "temp_repo"  # temporary local folder for repo
-FILE_PATH = "path/to/file.txt"  # file to modify inside repo
+REPO_URL = f"https://JoannaMnich:{cfg['githubkey']}@github.com/JoannaMnich/WSAA"
+FILE_PATH = "example.txt"  # plik do modyfikacji
 YOUR_NAME = "Joanna"
 
-# OPEN REPO
-try:
-    repo = git.Repo(LOCAL_PATH)
-    repo.remotes.origin.pull()
-except:
-    repo = git.Repo.clone_from(REPO_URL, LOCAL_PATH)
+# OPEN LOCAL REPO 
+repo = git.Repo(".") 
+repo.remotes.origin.pull()
 
 # MODIFY FILE
-file_full_path = f"{LOCAL_PATH}/{FILE_PATH}"
-
-with open(file_full_path, "r", encoding="utf-8") as f:
+with open(FILE_PATH, "r", encoding="utf-8") as f:
     content = f.read()
 
 content = content.replace("Andrew", YOUR_NAME)
 
-with open(file_full_path, "w", encoding="utf-8") as f:
+with open(FILE_PATH, "w", encoding="utf-8") as f:
     f.write(content)
 
 # COMMIT AND PUSH
