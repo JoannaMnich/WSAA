@@ -11,7 +11,8 @@ YOUR_NAME = "Joanna"
 
 # OPEN LOCAL REPO 
 repo = git.Repo(".") 
-repo.remotes.origin.pull()
+origin = repo.remotes['origin']   # najpierw pobierz remote 'origin'
+origin.pull(rebase=True) 
 
 # MODIFY FILE
 with open(FILE_PATH, "r", encoding="utf-8") as f:
