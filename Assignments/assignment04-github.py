@@ -3,7 +3,7 @@ from config import cfg
 
 # CONFIGURATION
 FILE_PATH = "example.txt"  
-YOUR_NAME = "Joanna"
+My_NAME = "Joanna"
 
 # Open local REPO 
 repo = git.Repo(".")  
@@ -21,19 +21,19 @@ else:
 with open(FILE_PATH, "r", encoding="utf-8") as f:
     content = f.read()
 
-content = content.replace("Andrew", YOUR_NAME)
+content = content.replace("Andrew", My_NAME)
 
 with open(FILE_PATH, "w", encoding="utf-8") as f:
     f.write(content)
 
-print(f'Changed all instances of "Andrew" to "{YOUR_NAME}".')
+print(f'Changed all instances of "Andrew" to "{My_NAME}".')
 
 # Add, commit and push changes
 repo.index.add([FILE_PATH])
-repo.index.commit(f'Replace "Andrew" with {YOUR_NAME}')
+repo.index.commit(f'Replace "Andrew" with {My_NAME}')
 
 # Push to GitHub
-# Use token in URL for authentication (not recommended for long-term use, but works for this assignment)
+# The token is used in URL for authentication 
 remote_url = f"https://JoannaMnich:{cfg['githubkey']}@github.com/JoannaMnich/WSAA/Assignments.git"
 origin.set_url(remote_url)  
 origin.push()
