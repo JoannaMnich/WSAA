@@ -17,7 +17,7 @@ else:
     origin.pull(rebase=True)
     print("Pull wykonany pomyślnie!")
 
-# Open the file and replace "Andrew" with YOUR_NAME
+# Open the file and replace "Andrew" with My_NAME
 with open(FILE_PATH, "r", encoding="utf-8") as f:
     content = f.read()
 
