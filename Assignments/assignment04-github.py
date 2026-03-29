@@ -15,7 +15,7 @@ if repo.is_dirty(untracked_files=True):
 else:
 # Pull with rebase to avoid merge commits
     origin.pull(rebase=True)
-    print("Pull wykonany pomyślnie!")
+    print("Pull done successfully.")
 
 # Open the file and replace "Andrew" with My_NAME
 with open(FILE_PATH, "r", encoding="utf-8") as f:
